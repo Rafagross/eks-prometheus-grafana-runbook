@@ -97,4 +97,4 @@ All pods should be `Running`, all PVCs `Bound`, and the ingress `ADDRESS` field 
 
 **Rafael Gross** — Cloud Operations Engineer (AWS · GCP · Kubernetes · SSM · CloudWatch)
 
-[Portfolio](https://rafagross.github.io) · [GitHub](https://github.com/Rafagross) · [LinkedIn](https://linkedin.com/in/rafaelgross)
+[Portfolio](https://rafagross.github.io) · [GitHub](https://github.com/Rafagross) · [LinkedIn](https://linkedin.com/in/erafael-gross)
