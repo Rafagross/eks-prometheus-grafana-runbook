@@ -4,7 +4,7 @@
 
 A production-grade, hardened deployment runbook for standing up an Amazon EKS cluster with a fully integrated Prometheus + Grafana observability stack using the `kube-prometheus-stack` Helm chart (Prometheus Operator).
 
-This is an **original operational document** — not a copy-paste tutorial. It was built by identifying gaps and incorrect practices in reference material and correcting them for real production use. See [Appendix A](./runbooks/eks-prometheus-grafana-runbook.md#appendix-a--deviations-from-the-reference-source) for the full deviation log.
+This is an **original operational document** — not a copy-paste tutorial. See the full [runbook](./runbooks/eks-prometheus-grafana-runbook.md).
 
 ---
 
@@ -12,16 +12,16 @@ This is an **original operational document** — not a copy-paste tutorial. It w
 
 | Phase | Description |
 |---|---|
-| Cluster provisioning | EKS with managed node groups via `eksctl`, private worker subnets, 3 AZs |
-| IAM & IRSA | Scoped provisioning role, IRSA for ALB Controller (not `ElasticLoadBalancingFullAccess`) |
-| AWS Load Balancer Controller | Helm install with IRSA service account, least-privilege IAM policy |
+| Cluster provisioning | EKS with a managed node group via `eksctl` (OIDC enabled, no SSH), dedicated VPC across multiple AZs |
+| IAM & IRSA | Scoped provisioning role, IRSA for the ALB Controller and the EBS CSI driver (not `ElasticLoadBalancingFullAccess`) |
+| AWS Load Balancer Controller | Helm install with an IRSA service account and the project's scoped IAM policy, pinned to a release tag |
 | Observability stack | `kube-prometheus-stack` — Prometheus Operator, Grafana, Alertmanager (HA, 2 replicas) |
-| Ingress & TLS | ALB Ingress with ACM certificate, HTTPS-only, Route 53 ALIAS |
-| Storage | EBS gp3 PVCs for Prometheus (50Gi) and Grafana (10Gi) |
+| Ingress & TLS | ALB Ingress with ACM certificate, HTTP→HTTPS redirect, CIDR allow-list, Route 53 alias record |
+| Storage | EBS CSI add-on, encrypted default gp3 StorageClass, PVCs for Prometheus (50Gi) and Grafana (10Gi) |
 | Validation gates | Step-by-step checks after every major phase |
-| Rollback | Full teardown sequence (Helm → IRSA → cluster) |
-| Cost guidance | Estimated monthly breakdown for `us-west-2`, cost optimization notes |
-| Troubleshooting | Common failure patterns with root cause and fix |
+| Rollback | Safe teardown order (Ingress → observability stack → ALB Controller and IAM → cluster) |
+| Cost guidance | Monthly cost estimate for `us-west-2` |
+| Escalation | Common failure patterns and the next check for each |
 
 ---
 
@@ -33,9 +33,9 @@ Most public EKS + Prometheus tutorials get these wrong. This runbook corrects al
 - **Prometheus Operator via `kube-prometheus-stack`** — not standalone Prometheus + Grafana charts, which have no ServiceMonitor support out of the box
 - **HA Alertmanager** — 2 replicas configured; single-replica Alertmanager is a silent failure point
 - **`ElasticLoadBalancingFullAccess` is wrong** — the official scoped policy from `kubernetes-sigs/aws-load-balancer-controller` is used instead
-- **IMDSv2 enforced** — hop limit set to 1 on node launch templates
-- **No plaintext secrets** — Grafana admin password generated at runtime; retrieved from Kubernetes Secret if needed
-- **Private worker nodes** — nodes in private subnets only; ALB in public subnets
+- **No IMDS dependency for the controller** — region and VPC ID are passed explicitly to the Helm install
+- **No plaintext secrets** — Grafana admin password generated at runtime and stored in a Kubernetes Secret
+- **Grafana is not open to the internet** — the ALB only accepts an allow-listed CIDR, over HTTPS
 
 ---
 
@@ -51,10 +51,7 @@ eks-prometheus-grafana-runbook/
 
 ## Prerequisites
 
-- `aws-cli` v2.15+, `eksctl` 0.190+, `helm` 3.14+, `kubectl` (within ±1 minor of cluster), `jq`
-- IAM role with scoped EKS + EC2 + CloudFormation + IAM OIDC permissions
-- ACM certificate already issued and validated for the Grafana hostname
-- VPC with 2+ AZs, properly tagged public and private subnets
+See [Prerequisites](./runbooks/eks-prometheus-grafana-runbook.md#prerequisites) in the runbook: a scoped IAM role, the CLI tools, an ACM certificate, and DNS control for the Grafana hostname.
 
 ---
 
@@ -87,8 +84,8 @@ All pods should be `Running`, all PVCs `Bound`, and the ingress `ADDRESS` field 
 
 ## Related
 
-- [Portfolio site](https://rafagross.github.io) — this runbook is featured under the Kubernetes / Observability section
-- [aws-cloudops-private-ec2-operations-platform](https://github.com/Rafagross/aws-cloudops-private-ec2-operations-platform) — SSM-based private EC2 ops with no public access
+- [This runbook on the portfolio site](https://rafael-gross.com/runbooks/eks-prometheus-grafana-stack)
+- [fraud-detection-aws-platform](https://github.com/Rafagross/fraud-detection-aws-platform) — SSM-based private EC2 ops with no public access
 - [container-runtime-runbooks-homelabs](https://github.com/Rafagross/container-runtime-runbooks-homelabs) — container runtime setup on bare metal
 
 ---
@@ -97,4 +94,4 @@ All pods should be `Running`, all PVCs `Bound`, and the ingress `ADDRESS` field 
 
 **Rafael Gross** — Cloud Operations Engineer (AWS · GCP · Kubernetes · SSM · CloudWatch)
 
-[Portfolio](https://rafagross.github.io) · [GitHub](https://github.com/Rafagross) · [LinkedIn](https://linkedin.com/in/erafael-gross)
+[Portfolio](https://rafael-gross.com) · [GitHub](https://github.com/Rafagross) · [LinkedIn](https://linkedin.com/in/erafael-gross)

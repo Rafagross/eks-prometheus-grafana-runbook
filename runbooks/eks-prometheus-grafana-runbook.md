@@ -1,1 +1,429 @@
-IyBQcm9kdWN0aW9uIEVLUyBDbHVzdGVyIHdpdGggUHJvbWV0aGV1cyAmIEdyYWZhbmEgT2JzZXJ2YWJpbGl0eSDigJQgRGVwbG95bWVudCBSdW5ib29rCgo+ICoqQXR0cmlidXRpb246KiogVGhpcyBydW5ib29rIGlzIGFuIG9yaWdpbmFsLCBoYXJkZW5lZCByZWltcGxlbWVudGF0aW9uIGluc3BpcmVkIGJ5IHRoZSBwdWJsaWMgYXJ0aWNsZSAqIkVLUyBQcm9kdWN0aW9uIFNldHVwIHdpdGggUHJvbWV0aGV1cyBhbmQgR3JhZmFuYSBNb25pdG9yaW5nIiogYnkgTWQgU2FqZWR1bCBJc2xhbSAoTWVkaXVtLCBKdW4gMjAyNSkuIFRoZSByZWZlcmVuY2Ugd2Fsa3Rocm91Z2ggd2FzIHVzZWQgYXMgYSBzdGFydGluZyBwb2ludCBvbmx5LiBUaGUgYXJjaGl0ZWN0dXJlLCB0b29saW5nIGNob2ljZXMsIHNlY3VyaXR5IG1vZGVsLCB2YWxpZGF0aW9uIGxvZ2ljLCByb2xsYmFjayBwcm9jZWR1cmVzLCBhbmQgb3BlcmF0aW9uYWwgZ3VpZGFuY2UgYmVsb3cgd2VyZSByZXdyaXR0ZW4gYW5kIGNvcnJlY3RlZCBmb3IgcmVhbCBwcm9kdWN0aW9uIHVzZSDigJQgc2VlIFtEZXZpYXRpb25zIGZyb20gdGhlIFJlZmVyZW5jZV0oI2FwcGVuZGl4LWEtLWRldmlhdGlvbnMtZnJvbS10aGUtcmVmZXJlbmNlLXNvdXJjZSkgZm9yIGEgbGluZS1ieS1saW5lIHJhdGlvbmFsZS4KCiMjIFBhdGgKYEFXUyBDbG91ZE9wcyDihpIgUnVuYm9va3Mg4oaSIEVLUyDihpIgT2JzZXJ2YWJpbGl0eSBTdGFjayBEZXBsb3ltZW50YAoKLS0tCgojIyBPYmplY3RpdmUKCkRlcGxveSBhIHByb2R1Y3Rpb24tZ3JhZGUgQW1hem9uIEVLUyBjbHVzdGVyIHdpdGggYSBmdWxseSBpbnRlZ3JhdGVkIFByb21ldGhldXMgKyBHcmFmYW5hIG9ic2VydmFiaWxpdHkgc3RhY2sgdXNpbmcgdGhlIGBrdWJlLXByb21ldGhldXMtc3RhY2tgIEhlbG0gY2hhcnQgKFByb21ldGhldXMgT3BlcmF0b3IpLiBVc2UgdGhpcyBydW5ib29rIHdoZW4gc3RhbmRpbmcgdXAgbW9uaXRvcmluZyBmb3IgYSBuZXcgRUtTIGVudmlyb25tZW50IG9yIHJlYnVpbGRpbmcgdGhlIG9ic2VydmFiaWxpdHkgbGF5ZXIgZnJvbSBzY3JhdGNoLiBUaGUgZW5kIHN0YXRlIGlzIGEgaGlnaGx5IGF2YWlsYWJsZSBjbHVzdGVyIGVtaXR0aW5nIGNsdXN0ZXIsIG5vZGUsIGFuZCBwb2QgbWV0cmljcywgd2l0aCBhbGVydGluZyB3aXJlZCB0byBBbGVydG1hbmFnZXIgYW5kIGRhc2hib2FyZHMgc2VydmVkIGJlaGluZCBhbiBBTEIgd2l0aCBUTFMuCgpUaGlzIHJ1bmJvb2sgaXMgKippZGVtcG90ZW50IHdoZXJlIHBvc3NpYmxlKiogYW5kIGluY2x1ZGVzIHZhbGlkYXRpb24gZ2F0ZXMgYWZ0ZXIgZXZlcnkgbWFqb3IgcGhhc2Ugc28gaXQgY2FuIGJlIGV4ZWN1dGVkIHVuZGVyIGNoYW5nZS1jb250cm9sIGluIHByb2R1Y3Rpb24uCgotLS0KCiMjIEVudmlyb25tZW50Cgp8IEZpZWxkICAgICAgICAgIHwgVmFsdWUgfAp8LS0tLS0tLS0tLS0tLS0tLXwtLS0tLS0tfAp8IEFXUyBTZXJ2aWNlICAgIHwgRUtTLCBFQzIgKG1hbmFnZWQgbm9kZSBncm91cHMpLCBFTEIgKEFMQi9OTEIpLCBBQ00sIElBTSAoSVJTQSksIEVCUyAoZ3AzKSB8CnwgUmVnaW9uICAgICAgICAgfCBgdXMtd2VzdC0yYCAocGFyYW1ldGVyaXplZCDigJQgY2hhbmdlIGBSRUdJT05gIG9uY2UpIHwKfCBBY2NvdW50L0VudiAgICB8IFByb2R1Y3Rpb24gfAp8IE9TICAgICAgICAgICAgIHwgQW1hem9uIExpbnV4IDIwMjMgKEVLUy1vcHRpbWl6ZWQgQU1JKSB8CnwgQWNjZXNzIE1ldGhvZCAgfCBDTEkgKyBIZWxtIGZyb20gYSBjb250cm9sbGVkIGFkbWluIHdvcmtzdGF0aW9uIC8gQ0kgcnVubmVyIHdpdGggSVJTQS1zY29wZWQgY3JlZGVudGlhbHMgfAp8IENvbW1hbmQgTW9kZSAgIHwgKipCIOKAlCBNb2Rlcm5pemVkKiogKGF3cy1jbGkgdjIsIElSU0Egb3ZlciBub2RlIElBTSwgbGVhc3QtcHJpdmlsZWdlIHBvbGljaWVzLCBTZWNyZXRzIG92ZXIgcGxhaW50ZXh0KSB8Cgo+ICoqV2h5IENMSSBtb2RlIGhlcmU6KiogRUtTIGNsdXN0ZXIgcHJvdmlzaW9uaW5nLCBIZWxtIHJlbGVhc2VzLCBhbmQgSVJTQSBzZXJ2aWNlIGFjY291bnRzIGhhdmUgbm8gbWVhbmluZ2Z1bCBDb25zb2xlLWZpcnN0IHBhdGguIFRoZSBBV1MgQ29uc29sZSBpcyByZWZlcmVuY2VkIGZvciAqdmFsaWRhdGlvbiBhbmQgaW5zcGVjdGlvbiogKENsb3VkRm9ybWF0aW9uLCBFS1MsIExvYWQgQmFsYW5jZXJzLCBBQ00pLCBub3QgZm9yIHByb3Zpc2lvbmluZy4KCi0tLQoKIyMgUHJlcmVxdWlzaXRlcwoKIyMjIElBTSBQZXJtaXNzaW9ucyBSZXF1aXJlZAoKVGhlIHByaW5jaXBhbCBleGVjdXRpbmcgdGhpcyBydW5ib29rIG5lZWRzIGEgc2NvcGVkIGFkbWluIHJvbGUgZm9yIGNsdXN0ZXIgY3JlYXRpb24uIERvICoqbm90KiogdXNlIHRoZSBhY2NvdW50IHJvb3Qgb3IgYW4gdW5jb25zdHJhaW5lZCBgQWRtaW5pc3RyYXRvckFjY2Vzc2Aga2V5IGluIHByb2R1Y3Rpb24g4oCUIHVzZSBhIGRlZGljYXRlZCBwcm92aXNpb25pbmcgcm9sZS4KCk1pbmltdW0gYWN0aW9uczoKCi0gYGVrczoqYCAoY2x1c3RlciArIG5vZGVncm91cCArIGFkZG9uIGxpZmVjeWNsZSkKLSBgZWMyOipgIGNvbnN0cmFpbmVkIHRvIHRoZSBjbHVzdGVyIFZQQyAoZWtzY3RsIGNyZWF0ZXMgVlBDLCBzdWJuZXRzLCBTR3MsIE5BVCkKLSBgY2xvdWRmb3JtYXRpb246KmAgKGVrc2N0bCBwcm92aXNpb25zIHZpYSBDRk4gc3RhY2tzKQotIGBpYW06Q3JlYXRlUm9sZWAsIGBpYW06QXR0YWNoUm9sZVBvbGljeWAsIGBpYW06Q3JlYXRlT3BlbklEQ29ubmVjdFByb3ZpZGVyYCwgYGlhbTpDcmVhdGVQb2xpY3lgLCBgaWFtOkNyZWF0ZVNlcnZpY2VMaW5rZWRSb2xlYAotIGBhY206RGVzY3JpYmVDZXJ0aWZpY2F0ZWAsIGBhY206TGlzdENlcnRpZmljYXRlc2AgKGZvciB0aGUgaW5ncmVzcyBUTFMgY2VydCkKLSBgYXV0b3NjYWxpbmc6KmAgY29uc3RyYWluZWQgdG8gdGhlIG5vZGVncm91cCBBU0dzCgpUaGUgKipBV1MgTG9hZCBCYWxhbmNlciBDb250cm9sbGVyKiogZG9lcyAqKm5vdCoqIHVzZSBgRWxhc3RpY0xvYWRCYWxhbmNpbmdGdWxsQWNjZXNzYC4gSXQgdXNlcyB0aGUgb2ZmaWNpYWwgc2NvcGVkIElBTSBwb2xpY3kgcHVibGlzaGVkIGJ5IHRoZSBwcm9qZWN0IChzZWUgU3RlcCA0KS4gVGhpcyBpcyBhIGRlbGliZXJhdGUgY29ycmVjdGlvbiBmcm9tIHRoZSByZWZlcmVuY2Ugc291cmNlLgoKIyMjIE5ldHdvcmsgUmVxdWlyZW1lbnRzCgotIEEgVlBDIHdpdGggKiphdCBsZWFzdCAyIChwcmVmZXJhYmx5IDMpIEF2YWlsYWJpbGl0eSBab25lcyoqLiBla3NjdGwgd2lsbCBjcmVhdGUgb25lIGlmIG5vdCBzdXBwbGllZDsgZm9yIHByb2R1Y3Rpb24gcHJlZmVyIHN1cHBseWluZyBhbiBleGlzdGluZyByZXZpZXdlZCBWUEMuCi0gUHVibGljIHN1Ym5ldHMgdGFnZ2VkIGBrdWJlcm5ldGVzLmlvL3JvbGUvZWxiPTFgIGZvciBpbnRlcm5ldC1mYWNpbmcgQUxCcy4KLSBQcml2YXRlIHN1Ym5ldHMgdGFnZ2VkIGBrdWJlcm5ldGVzLmlvL3JvbGUvaW50ZXJuYWwtZWxiPTFgIGZvciBpbnRlcm5hbCBsb2FkIGJhbGFuY2Vyczsgd29ya2VyIG5vZGVzIHJ1biBpbiBwcml2YXRlIHN1Ym5ldHMuCi0gTkFUIEdhdGV3YXkgKG9uZSBwZXIgQVogZm9yIEhBOyBzaW5nbGUgTkFUIGFjY2VwdGFibGUgZm9yIGNvc3Qtc2Vuc2l0aXZlIG5vbi1jcml0aWNhbCBlbnZpcm9ubWVudHMg4oCUIGNhbGwgdGhpcyBvdXQgaW4geW91ciBjaGFuZ2UgcmVjb3JkKS4KLSBPdXRib3VuZCA0NDMgdG8gdGhlIEVLUyBBUEkgZW5kcG9pbnQsIEVDUiwgUzMgKGdhdGV3YXkgZW5kcG9pbnQgcmVjb21tZW5kZWQpLCBhbmQgU1RTLgotIFZQQyBlbmRwb2ludHMgcmVjb21tZW5kZWQgZm9yIHByb2R1Y3Rpb24gdG8gcmVkdWNlIE5BVCBjb3N0IGFuZCBzdGF5IGluLW5ldHdvcms6IGBlYzJgLCBgZWNyLmFwaWAsIGBlY3IuZGtyYCwgYHN0c2AsIGBsb2dzYCwgYHMzYCAoZ2F0ZXdheSkuCgojIyMgVG9vbHMgLyBBZ2VudHMKCnwgVG9vbCB8IE1pbmltdW0gVmVyc2lvbiB8IE5vdGVzIHwKfC0tLS0tLXwtLS0tLS0tLS0tLS0tLS0tLXwtLS0tLS0tfAp8IGF3cy1jbGkgfCB2Mi4xNSsgfCB2MSBpcyBFT0wgZm9yIG5ldyB0b29saW5nOyB2MiBvbmx5IHwKfCBrdWJlY3RsIHwgd2l0aGluIMKxMSBtaW5vciBvZiBjbHVzdGVyICgxLjI5LzEuMzAvMS4zMSkgfCBza2V3IHBvbGljeSB8CnwgZWtzY3RsIHwgMC4xOTArIHwgcmVjZW50IENOSS9hZGRvbiBzdXBwb3J0IHwKfCBoZWxtIHwgMy4xNCsgfCBPQ0kgKyBzY2hlbWEgdmFsaWRhdGlvbiB8CnwganEgfCBhbnkgfCB1c2VkIGluIHZhbGlkYXRpb24gY2hlY2tzIHwKCiMjIyBBc3N1bXB0aW9ucwoKLSBETlMgem9uZSBjb250cm9sIGV4aXN0cyBmb3IgdGhlIEdyYWZhbmEgaG9zdG5hbWUgKGUuZy4sIGBncmFmYW5hLmV4YW1wbGUuY29tYCkgYW5kIGEgbWF0Y2hpbmcgKipBQ00gY2VydGlmaWNhdGUgaXMgYWxyZWFkeSBpc3N1ZWQgYW5kIHZhbGlkYXRlZCoqIGluIHRoZSBjbHVzdGVyIHJlZ2lvbi4gQUNNIGlzc3VhbmNlIGlzIG91dCBvZiBzY29wZSDigJQgaXQgaXMgYSBzZXBhcmF0ZSBjaGFuZ2UuCi0gVGhlIGV4ZWN1dG9yIGNhbiBhc3N1bWUgdGhlIHByb3Zpc2lvbmluZyBJQU0gcm9sZSBmcm9tIHRoZWlyIHdvcmtzdGF0aW9uL0NJLgotIEEgS3ViZXJuZXRlcyB2ZXJzaW9uIGlzIGNob3NlbiBmcm9tIHRoZSAqKmN1cnJlbnRseSBzdXBwb3J0ZWQgRUtTIHZlcnNpb25zKiogYXQgZXhlY3V0aW9uIHRpbWUuIFRoaXMgcnVuYm9vayBwaW5zIGAxLjMwYCBhcyBhbiBleGFtcGxlOyBjb25maXJtIGl0IGlzIHN0aWxsIHN1cHBvcnRlZCBiZWZvcmUgcnVubmluZyAoRUtTIGRlcHJlY2F0ZXMgdmVyc2lvbnMgb24gYSB+MTQtbW9udGggY3ljbGUpLgotIENvc3Qgb3duZXJzaGlwIGlzIHVuZGVyc3Rvb2Q6IHRoaXMgc3RhY2sgcnVucyBFQzIgbm9kZXMsIEVCUyB2b2x1bWVzLCBOQVQsIGFuZCBhdCBsZWFzdCBvbmUgRUxCIDI0LzcuIFNlZSBbQ29zdCBDb25zaWRlcmF0aW9uc10oI2Nvc3QtY29uc2lkZXJhdGlvbnMpLgoKLS0tCgojIyBBcmNoaXRlY3R1cmUKCiMjIyBMb2dpY2FsIHZpZXcKCmBgYAogICAgICAgICAgICAgICAgICAgICAgICAgIOKUjOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUkAogICBJbnRlcm5ldCAgICAgICAgICAgICAgIOKUgiAgICAgICAgICAgIFJvdXRlIDUzICAgICAgICAgICDilIIKICAgICAg4pSCICAgICAgICAgICAgICAgICAgIOKUgiAgIGdyYWZhbmEuZXhhbXBsZS5jb20gKEEvQUxJQVMp4pSCCiAgICAgIOKUgiAgICAgICAgICAgICAgICAgICDilJTilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilKzilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilJgKICAgICAg4pa8ICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICDilIIK4pSM4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSQICAgIFRMUyAoQUNNKSAgICAg4pSM4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pa84pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSQCuKUgiAgQXBwbGljYXRpb24gIOKUguKXgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKWtuKUgiAgIEFXUyBBTEIgICAgICAg4pSCICAocHJvdmlzaW9uZWQgYnkK4pSCICBMb2FkIEJhbGFuY2Vy4pSCICAgICAgICAgICAgICAgICDilIIgIGludGVybmV0LWZhY2luZ+KUgiAgIEFXUyBMQiBDb250cm9sbGVyCuKUlOKUgOKUgOKUgOKUgOKUgOKUgOKUrOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUmCAgICAgICAgICAgICAgICAgIOKUlOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUrOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUmCAgIHZpYSBJbmdyZXNzIG9iamVjdCkKICAgICAgIOKUgiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICDilIIKICAgICAgIOKUgiAgICAgICAgICAgIEVLUyBDbHVzdGVyIChwcml2YXRlIHdvcmtlciBzdWJuZXRzLCAzIEFaKQogICAgICAg4pSCICAg4pSM4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSQCiAgICAgICDilJTilIDilIDilrbilIIgIG5hbWVzcGFjZTogbW9uaXRvcmluZyAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAg4pSCCiAgICAgICAgICAg4pSCICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIOKUggogICAgICAgICAgIOKUgiAg4pSM4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSQICBzY3JhcGUgICDilIzilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilJAg4pSCCiAgICAgICAgICAg4pSCICDilIIgIEdyYWZhbmEgICAgIOKUguKXgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgiAgUHJvbWV0aGV1cyAoT3BlcmF0b3IpIOKUgiDilIIKICAgICAgICAgICDilIIgIOKUgiAgKERlcGxveW1lbnQp4pSCICBxdWVyeSAgICDilIIgICsgU2VydmljZU1vbml0b3JzICAgICDilIIg4pSCCiAgICAgICAgICAg4pSCICDilJTilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilJggICAgICAgICAgICDilIIgICsgUHJvbWV0aGV1c1J1bGVzICAgICDilIIg4pSCCiAgICAgICAgICAg4pSCICAgICAgICAg4payICAgICAgICAgICAgICAgICAgIOKUlOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUrOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUgOKUmCDilIIKICAgICAgICAgICDilIIgICAgICAgICDilIIgZGFzaGJvYXJkcyAgICAgICAgICAgICAgICAgICAg4pSCIGFsZXJ0cyAgICAgICAgIOKUggogICAgICAgICAgIOKUgiAgICAgICAgIOKUgiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIOKWvCAgICAgICAgICAgICAgIOKUggogICAgICAgICAgIOKUgiAg4pSM4pSA4pSA4pSA4pSA4pSA4pSA4pS04pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSQICAgICAgICAgICAgICDilIzilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilIDilJAgICAg4pSCCiAgICAgICAgICAg4pSCICDilIIga3ViZS1zdGF0ZS0gICDilIIgICAgICAgICAgICAgIOKUgiAgQWxlcnRtYW5hZ2VyICAgIOKUguKUgOKUgOKUgOKWtuKUgiBFbWFpbCAvIFNsYWNrIC8KICAgICAgICAgICDilIIgIOKUgiBtZXRyaWNzICsgICAgIOKUgiAgICAgICAgICAgICAg4pSCICAoSEEsIDIgcmVwbGljYXMp4pSCICAgIOKUgiBQYWdlckR1dHkKICAgICAgICAgICDilIIgIOKUgiBub2RlLWV4cG9ydGVyIOKUgiAgICAgICAgICAgICAg4pSU4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSA4pSYICAgIOKUggogICAgICAgICAgIOKUgiAg4pSU
+# Deploy an EKS Observability Stack with Prometheus & Grafana
+
+> **CloudOps Runbook** | Category: Kubernetes / Observability | Severity: P2 | Estimated time: 45-90 min | Status: Stable
+
+## Summary
+
+This runbook deploys an Amazon EKS cluster with a Prometheus + Grafana observability stack using the `kube-prometheus-stack` Helm chart (Prometheus Operator). Use it when standing up monitoring for a new EKS environment or rebuilding the observability layer from scratch.
+
+End state: cluster, node and pod metrics scraped by Prometheus with persistent gp3 storage, Alertmanager running two replicas, and Grafana served over HTTPS behind an ALB restricted to an allow-listed CIDR.
+
+Every phase ends with a validation gate. Do not continue to the next step until the gate passes.
+
+---
+
+## When to Use This Runbook
+
+- Standing up a new EKS environment that needs Prometheus + Grafana from day one
+- Rebuilding the observability stack after a cluster replacement or DR event
+- Migrating from a self-managed Prometheus deployment to Prometheus Operator
+- Reference when debugging a broken kube-prometheus-stack install
+
+---
+
+## Environment
+
+| Field | Value |
+|---|---|
+| AWS Services | EKS, EC2 (managed node group), ALB, ACM, IAM (IRSA), EBS (gp3), Route 53 |
+| Region | `us-west-2` (parameterized — change `REGION` once) |
+| Kubernetes | A version in **standard support** (see Step 1) |
+| Node OS | Amazon Linux 2023 (EKS-optimized AMI) |
+| Access Method | CLI + Helm from an admin workstation or CI runner using short-lived credentials (IAM Identity Center / OIDC) |
+
+> **Why CLI here:** EKS provisioning, Helm releases and IRSA service accounts have no practical Console-first path. The Console is used for *validation* (CloudFormation, EKS, EC2 → Load Balancers, ACM).
+
+---
+
+## Prerequisites
+
+- IAM role with scoped EKS, EC2, CloudFormation and IAM (OIDC provider, roles, policies) permissions — not root, not AdministratorAccess
+- aws-cli v2, kubectl (within ±1 minor of the cluster version), eksctl, helm 3.8+ (OCI support), jq, openssl
+- ACM certificate issued and validated for the Grafana hostname, in the same region as the cluster
+- Route 53 hosted zone (or DNS control) for the Grafana hostname
+
+---
+
+## Step 1: Set Environment Variables
+
+Define everything once. Every later command references these variables.
+
+```bash
+export CLUSTER_NAME="prod-eks-01"
+export REGION="us-west-2"
+export K8S_VERSION="1.35"          # must be in standard support — see note below
+export NODE_TYPE="m5.large"
+export NODE_MIN=2
+export NODE_MAX=4
+export NODE_DESIRED=2
+export GRAFANA_HOSTNAME="grafana.example.com"
+export ACM_CERT_ARN="arn:aws:acm:us-west-2:123456789012:certificate/xxxxxxxx"
+export ALLOWED_CIDR="203.0.113.0/24"   # office / VPN egress range allowed to reach Grafana
+export ACCOUNT_ID="$(aws sts get-caller-identity --query Account --output text)"
+```
+
+> [!WARNING]
+> Pick a Kubernetes version that is in **standard support** on the [EKS version calendar](https://docs.aws.amazon.com/eks/latest/userguide/kubernetes-versions.html). A cluster on a version in extended support is billed at $0.60 per hour instead of $0.10 ([EKS pricing](https://aws.amazon.com/eks/pricing/)).
+
+**Expected result:** `echo $ACCOUNT_ID` returns your 12-digit account ID.
+
+---
+
+## Step 2: Create the EKS Cluster
+
+```bash
+eksctl create cluster \
+  --name "$CLUSTER_NAME" \
+  --region "$REGION" \
+  --version "$K8S_VERSION" \
+  --nodegroup-name managed-workers \
+  --node-type "$NODE_TYPE" \
+  --node-ami-family AmazonLinux2023 \
+  --nodes "$NODE_DESIRED" \
+  --nodes-min "$NODE_MIN" \
+  --nodes-max "$NODE_MAX" \
+  --managed \
+  --with-oidc \
+  --ssh-access=false
+```
+
+eksctl creates a dedicated VPC across multiple AZs with tagged public and private subnets and a **single** NAT gateway (`--vpc-nat-mode Single` is the default). For an existing VPC, pass `--vpc-private-subnets` / `--vpc-public-subnets` and make sure the subnets carry `kubernetes.io/role/elb=1` (public) and `kubernetes.io/role/internal-elb=1` (private).
+
+**Expected result:** CloudFormation stacks `eksctl-$CLUSTER_NAME-cluster` and `eksctl-$CLUSTER_NAME-nodegroup-managed-workers` reach `CREATE_COMPLETE` (Console → CloudFormation).
+
+**Validation gate:**
+
+```bash
+kubectl get nodes -o wide
+# All nodes Ready
+kubectl cluster-info
+```
+
+---
+
+## Step 3: Install the EBS CSI Driver and a Default gp3 StorageClass
+
+Prometheus and Grafana need persistent volumes. On EKS, EBS volumes are provisioned by the **EBS CSI driver**, which is not installed by default. Without it, every PVC stays `Pending`.
+
+```bash
+# IAM role for the driver (IRSA) — role only, the add-on creates the service account
+eksctl create iamserviceaccount \
+  --cluster "$CLUSTER_NAME" \
+  --region "$REGION" \
+  --namespace kube-system \
+  --name ebs-csi-controller-sa \
+  --role-name "${CLUSTER_NAME}-ebs-csi" \
+  --role-only \
+  --attach-policy-arn arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy \
+  --approve
+
+# Managed add-on
+eksctl create addon \
+  --cluster "$CLUSTER_NAME" \
+  --region "$REGION" \
+  --name aws-ebs-csi-driver \
+  --version latest \
+  --service-account-role-arn "arn:aws:iam::${ACCOUNT_ID}:role/${CLUSTER_NAME}-ebs-csi"
+```
+
+Create `gp3-storageclass.yaml`:
+
+```yaml
+apiVersion: storage.k8s.io/v1
+kind: StorageClass
+metadata:
+  name: gp3
+  annotations:
+    storageclass.kubernetes.io/is-default-class: "true"
+provisioner: ebs.csi.aws.com
+volumeBindingMode: WaitForFirstConsumer
+allowVolumeExpansion: true
+reclaimPolicy: Delete
+parameters:
+  type: gp3
+  fsType: ext4
+  encrypted: "true"
+```
+
+```bash
+kubectl apply -f gp3-storageclass.yaml
+kubectl get storageclass
+```
+
+If `gp2` also shows `(default)`, remove that flag so only `gp3` is the default:
+
+```bash
+kubectl annotate storageclass gp2 storageclass.kubernetes.io/is-default-class-
+```
+
+**Validation gate:**
+
+```bash
+kubectl get pods -n kube-system -l app=ebs-csi-controller
+# ebs-csi-controller pods Running
+kubectl get storageclass
+# gp3 (default)
+```
+
+---
+
+## Step 4: Create the Monitoring Namespace
+
+```bash
+kubectl create namespace monitoring
+kubectl label namespace monitoring environment=production
+```
+
+**Expected result:** `kubectl get ns monitoring` shows `Active`.
+
+---
+
+## Step 5: Install the AWS Load Balancer Controller (IRSA)
+
+The controller gets the scoped IAM policy published by the project, not `ElasticLoadBalancingFullAccess`. Pin the policy to the controller release you install.
+
+```bash
+# Scoped IAM policy, pinned to a release tag (not main)
+curl -fsSL -o alb-iam-policy.json \
+  https://raw.githubusercontent.com/kubernetes-sigs/aws-load-balancer-controller/v3.5.0/docs/install/iam_policy.json
+
+aws iam create-policy \
+  --policy-name AWSLoadBalancerControllerIAMPolicy \
+  --policy-document file://alb-iam-policy.json
+
+# IRSA service account
+eksctl create iamserviceaccount \
+  --cluster "$CLUSTER_NAME" \
+  --region "$REGION" \
+  --namespace kube-system \
+  --name aws-load-balancer-controller \
+  --attach-policy-arn "arn:aws:iam::${ACCOUNT_ID}:policy/AWSLoadBalancerControllerIAMPolicy" \
+  --approve
+
+# Helm install (region and VPC passed explicitly so the controller does not depend on IMDS)
+VPC_ID="$(aws eks describe-cluster --name "$CLUSTER_NAME" --region "$REGION" \
+  --query 'cluster.resourcesVpcConfig.vpcId' --output text)"
+
+helm repo add eks https://aws.github.io/eks-charts
+helm repo update
+
+helm install aws-load-balancer-controller eks/aws-load-balancer-controller \
+  -n kube-system \
+  --set clusterName="$CLUSTER_NAME" \
+  --set serviceAccount.create=false \
+  --set serviceAccount.name=aws-load-balancer-controller \
+  --set region="$REGION" \
+  --set vpcId="$VPC_ID"
+```
+
+> The controller project also documents **EKS Pod Identity** as an alternative to IRSA. This runbook uses IRSA, and both are supported ([installation guide](https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/deploy/installation/)).
+
+**Validation gate:**
+
+```bash
+kubectl get deployment -n kube-system aws-load-balancer-controller
+# READY 2/2
+kubectl get ingressclass
+# alb
+kubectl logs -n kube-system -l app.kubernetes.io/name=aws-load-balancer-controller --tail=20
+```
+
+---
+
+## Step 6: Install kube-prometheus-stack
+
+Create the Grafana admin credentials as a Secret first, so the password never lands in Helm release values or shell history.
+
+```bash
+kubectl create secret generic grafana-admin -n monitoring \
+  --from-literal=admin-user=admin \
+  --from-literal=admin-password="$(openssl rand -base64 24)"
+```
+
+Create `kps-values.yaml`:
+
+```yaml
+grafana:
+  admin:
+    existingSecret: grafana-admin
+    userKey: admin-user
+    passwordKey: admin-password
+  persistence:
+    enabled: true
+    storageClassName: gp3
+    size: 10Gi
+
+alertmanager:
+  alertmanagerSpec:
+    replicas: 2
+
+prometheus:
+  prometheusSpec:
+    retention: 15d
+    storageSpec:
+      volumeClaimTemplate:
+        spec:
+          storageClassName: gp3
+          accessModes: ["ReadWriteOnce"]
+          resources:
+            requests:
+              storage: 50Gi
+```
+
+```bash
+# The chart is published as an OCI artifact. Pin --version to the release you tested.
+helm install kube-prometheus-stack \
+  oci://ghcr.io/prometheus-community/charts/kube-prometheus-stack \
+  -n monitoring \
+  -f kps-values.yaml
+```
+
+Retrieve the Grafana password when needed:
+
+```bash
+kubectl get secret -n monitoring grafana-admin -o jsonpath='{.data.admin-password}' | base64 -d
+```
+
+**Validation gate:**
+
+```bash
+kubectl get pods -n monitoring
+# All Running or Completed; no CrashLoopBackOff
+kubectl get pvc -n monitoring
+# All Bound, STORAGECLASS gp3
+```
+
+---
+
+## Step 7: Expose Grafana via ALB Ingress with TLS
+
+Create `grafana-ingress.yaml`:
+
+```yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: grafana-ingress
+  namespace: monitoring
+  annotations:
+    alb.ingress.kubernetes.io/scheme: internet-facing
+    alb.ingress.kubernetes.io/target-type: ip
+    alb.ingress.kubernetes.io/certificate-arn: "<ACM_CERT_ARN>"
+    alb.ingress.kubernetes.io/listen-ports: '[{"HTTP": 80}, {"HTTPS": 443}]'
+    alb.ingress.kubernetes.io/ssl-redirect: "443"
+    alb.ingress.kubernetes.io/inbound-cidrs: "<ALLOWED_CIDR>"
+spec:
+  ingressClassName: alb
+  rules:
+    - host: "<GRAFANA_HOSTNAME>"
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: kube-prometheus-stack-grafana
+                port:
+                  number: 80
+```
+
+```bash
+sed -i "s|<ACM_CERT_ARN>|$ACM_CERT_ARN|g; s|<GRAFANA_HOSTNAME>|$GRAFANA_HOSTNAME|g; s|<ALLOWED_CIDR>|$ALLOWED_CIDR|g" grafana-ingress.yaml
+kubectl apply -f grafana-ingress.yaml
+```
+
+> [!WARNING]
+> Grafana is an admin surface. Keep `inbound-cidrs` limited to your office/VPN range, or switch to `scheme: internal` and reach it over VPN. Never expose it to `0.0.0.0/0`.
+
+**Validation gate:**
+
+```bash
+kubectl get ingress -n monitoring grafana-ingress
+# ADDRESS shows an ALB DNS name (2-3 minutes)
+kubectl describe ingress -n monitoring grafana-ingress
+# Events: no "Failed build model" errors
+```
+
+Create a Route 53 **Alias** record for `$GRAFANA_HOSTNAME` pointing to the ALB.
+
+**Console path:** Route 53 → Hosted zones → *your zone* → Create record → Record type A → Alias → Alias to Application and Classic Load Balancer → *region* → select the ALB.
+
+---
+
+## Validation
+
+| Check | How to Verify | Expected Result |
+|---|---|---|
+| Nodes healthy | `kubectl get nodes` | All `Ready` |
+| EBS CSI driver | `kubectl get pods -n kube-system -l app=ebs-csi-controller` | `Running` |
+| Default StorageClass | `kubectl get storageclass` | `gp3 (default)` |
+| ALB Controller | `kubectl get deploy -n kube-system aws-load-balancer-controller` | `2/2` Ready |
+| Stack pods | `kubectl get pods -n monitoring` | All `Running` / `Completed` |
+| PVCs | `kubectl get pvc -n monitoring` | All `Bound` on `gp3` |
+| Alertmanager HA | `kubectl get pods -n monitoring -l app.kubernetes.io/name=alertmanager` | 2 pods `Running` |
+| Scrape targets | `kubectl port-forward -n monitoring svc/kube-prometheus-stack-prometheus 9090` → http://localhost:9090/targets | Targets `UP` |
+| Grafana | `https://$GRAFANA_HOSTNAME` from the allowed CIDR | Login page, valid TLS certificate |
+
+---
+
+## Rollback
+
+Delete the Ingress **before** uninstalling the controller. Otherwise the ALB is left orphaned and keeps billing.
+
+```bash
+# 1. Remove the Ingress and wait for the ALB to be deleted (EC2 → Load Balancers)
+kubectl delete ingress -n monitoring grafana-ingress
+
+# 2. Remove the observability stack (deleting the namespace also deletes its PVCs → EBS volumes)
+helm uninstall kube-prometheus-stack -n monitoring
+kubectl delete namespace monitoring
+
+# 3. Remove the ALB Controller and its IAM
+helm uninstall aws-load-balancer-controller -n kube-system
+eksctl delete iamserviceaccount --cluster "$CLUSTER_NAME" --region "$REGION" \
+  --namespace kube-system --name aws-load-balancer-controller
+aws iam delete-policy --policy-arn "arn:aws:iam::${ACCOUNT_ID}:policy/AWSLoadBalancerControllerIAMPolicy"
+
+# 4. Delete the cluster (destructive — confirm first; also removes the EBS CSI add-on)
+eksctl delete cluster --name "$CLUSTER_NAME" --region "$REGION"
+```
+
+---
+
+## Cost Considerations
+
+Approximate monthly cost running 24/7 in `us-west-2` with On-Demand pricing. Validate in the [AWS Pricing Calculator](https://calculator.aws/) before you commit.
+
+| Resource | Estimated Monthly Cost |
+|---|---|
+| EKS control plane (standard support, $0.10/hr) | ~$73 |
+| 2× m5.large nodes | ~$140 |
+| EBS gp3: 2× 80 GiB node volumes + 60 GiB Prometheus/Grafana | ~$18 |
+| NAT gateway (single) + data processing | ~$35+ |
+| ALB (hours + LCUs) | ~$20+ |
+| **Total** | **~$285+** |
+
+- A cluster on an extended-support version adds $0.50/hr (~$365/month).
+- Use Savings Plans or Spot for non-production.
+- Add VPC endpoints (ECR, STS, S3) to cut NAT data-processing charges.
+- Reduce Prometheus `retention` if you don't need 15 days.
+
+---
+
+## Escalation
+
+| Condition | Next Action |
+|---|---|
+| PVCs stuck `Pending` | Check `kubectl get storageclass` for a default and the EBS CSI controller pods; `kubectl describe pvc` for provisioning errors (usually the IRSA role) |
+| ALB Controller in CrashLoopBackOff | Check the IRSA annotation on the service account and that the cluster OIDC provider exists in IAM |
+| Ingress ADDRESS blank after 5 min | `kubectl describe ingress` events and controller logs; verify subnet tags and the ACM ARN/region |
+| eksctl fails during CloudFormation | Console → CloudFormation → stack → Events for the first `CREATE_FAILED` |
+
+---
+
+## Revision History
+
+| Date | Author | Change |
+|---|---|---|
+| 2026-09-28 | Rafael Gross | Published. Added EBS CSI driver + default gp3 StorageClass, Grafana admin via Secret, `ingressClassName`, HTTP→HTTPS redirect, CIDR-restricted ALB, pinned controller policy, supported Kubernetes version, control-plane cost, safe rollback order |
+| 2026-05-19 | Rafael Gross | Initial version |
